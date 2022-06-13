@@ -24,5 +24,16 @@ Config = {
 		{position = vec3(842.54, -1035.43, 28.19), heading = 2.73, typePed = "s_m_m_cntrybar_01"},
 	},
 
+	ArmesBlanche = {
+		{Label = "Knife", Model = "weapon_knife", Prix = 25},
+		{Label = "Machette", Model = "weapon_machete", Prix = 60}
+	},
+
+	Armes = {
+		{Label = "Pistolet de Combat", Model = "weapon_combatpistol", Prix = 500},
+		{Label = "Pistolet SNS", Model = "weapon_snspistol", Prix = 750}
+	},
+
 	PPAObligatoire = false
+
 }
