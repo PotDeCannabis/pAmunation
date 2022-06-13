@@ -21,7 +21,7 @@ Citizen.CreateThread(function()
              end
             if dist <= 2 then
                 wait = 1
-                Visual.Subtitle("Appuyer sur ~y~[E]~s~ pour accèder à ~y~l'armurerie ~s~!", 1) 
+                Visual.Subtitle("Appuyer sur ~y~[E]~s~ pour accèder à ~y~l'Armurerie ~s~!", 1) 
                 if IsControlJustPressed(1,51) then
                     OpenArmurerie()
                 end
@@ -73,7 +73,7 @@ function VerifPPA()
     ESX.TriggerServerCallback('esx_license:checkLicense', function(hasWeaponLicense)
         possessionppa = hasWeaponLicense
     end, GetPlayerServerId(PlayerId()), 'weapon')
-end 
+end
 
 -- Menu
 
@@ -171,33 +171,29 @@ function OpenArmurerie()
 
                 RageUI.IsVisible(mainMenu3, function() 
 
-                    RageUI.Button("Knife", nil, {RightLabel = "~y~50 $"}, true , {
-                    onSelected = function()
-                        TriggerServerEvent('pAmunation:achatLiquideKnife')
+                    for k,v in pairs(Config.ArmesBlanche) do
+                        RageUI.Button(v.Label, nil, {RightLabel = "~y~" ..v.Prix.. "$"}, true , {
+                            onSelected = function()
+                                Model = v.Model
+                                Prix = v.Prix
+                                TriggerServerEvent("pAmunation:achatliquide", Model, Prix)
+                            end
+                        })
                     end
-                    })
-
-                    RageUI.Button("Machette", nil, {RightLabel = "~y~35 $"}, true , {
-                    onSelected = function() 
-                        TriggerServerEvent('pAmunation:achatLiquideMachette')
-                    end
-                    })
 
                 end)
 
                 RageUI.IsVisible(mainMenu4, function() 
 
-                    RageUI.Button("Pistolet de combat", nil, {RightLabel = "~y~1200 $"}, true , {
-                    onSelected = function()
-                        TriggerServerEvent('pAmunation:achatLiquidePistoletCombat')
+                    for k,v in pairs(Config.Armes) do
+                        RageUI.Button(v.Label, nil, {RightLabel = "~y~" ..v.Prix.. "$"}, true , {
+                            onSelected = function()
+                                Model = v.Model
+                                Prix = v.Prix
+                                TriggerServerEvent("pAmunation:achatliquide", Model, Prix)
+                            end
+                        })
                     end
-                    })
-
-                    RageUI.Button("Pistolet SNS", nil, {RightLabel = "~y~800 $"}, true , {
-                    onSelected = function() 
-                        TriggerServerEvent('pAmunation:achatLiquidePistoletSNS')
-                    end
-                    })
 
                 end)
 
@@ -219,33 +215,29 @@ function OpenArmurerie()
 
                 RageUI.IsVisible(mainMenu6, function() 
 
-                    RageUI.Button("Knife", nil, {RightLabel = "~y~50 $"}, true , {
-                    onSelected = function()
-                        TriggerServerEvent('pAmunation:achatBanqueKnife')
+                    for k,v in pairs(Config.ArmesBlanche) do
+                        RageUI.Button(v.Label, nil, {RightLabel = "~y~" ..v.Prix.. "$"}, true , {
+                            onSelected = function()
+                                Model = v.Model
+                                Prix = v.Prix
+                                TriggerServerEvent("pAmunation:achatbanque", Model, Prix)
+                            end
+                        })
                     end
-                    })
-
-                    RageUI.Button("Machette", nil, {RightLabel = "~y~35 $"}, true , {
-                    onSelected = function() 
-                        TriggerServerEvent('pAmunation:achatBanqueMachette')
-                    end
-                    })
 
                 end)
 
                 RageUI.IsVisible(mainMenu7, function() 
 
-                    RageUI.Button("Pistolet de combat", nil, {RightLabel = "~y~1200 $"}, true , {
-                    onSelected = function() 
-                        TriggerServerEvent('pAmunation:achatBanquePistolet')
+                    for k,v in pairs(Config.Armes) do
+                        RageUI.Button(v.Label, nil, {RightLabel = "~y~" ..v.Prix.. "$"}, true , {
+                            onSelected = function()
+                                Model = v.Model
+                                Prix = v.Prix
+                                TriggerServerEvent("pAmunation:achatbanque", Model, Prix)
+                            end
+                        })
                     end
-                    })
-
-                    RageUI.Button("Pistolet SNS", nil, {RightLabel = "~y~800 $"}, true , {
-                    onSelected = function() 
-                        TriggerServerEvent('pAmunation:achatBanquePistoletSNS')
-                    end
-                    })
 
                 end)
 
