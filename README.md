@@ -3,7 +3,7 @@
 #### This script need ESX Framework
 
 #### How to start this resource ?
-   - Add this line to server.cfg `ensure pAmunationjob`
+   - Add this line to server.cfg `ensure pAmunation`
 
 Preview: https://youtu.be/4JvrVv4T1cM
 
